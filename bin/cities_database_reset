@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+# Delete `cities` database if it exists.
+psql postgres -c "DROP DATABASE IF EXISTS cities;";
+
+# Create the database.
+psql postgres -c "CREATE DATABASE cities;";
+
+# Create table `cities` with schemq.
+psql cities -f "sql_schema/worldcities_schema.sql";

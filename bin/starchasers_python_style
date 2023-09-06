@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+pycodestyle starchasers
+pydocstyle starchasers
+pylint --disable=cyclic-import,fixme --unsafe-load-any-extension=y starchasers
+# pycodestyle preprocessing
+# pydocstyle preprocessing
+# pylint --disable=cyclic-import --unsafe-load-any-extension=y preprocessing

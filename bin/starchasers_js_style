@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+npx eslint --ext jsx starchasers/static/js
+npx prettier --write starchasers/static/js
+npx prettier --check starchasers/static/js

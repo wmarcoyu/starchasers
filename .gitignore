@@ -1,0 +1,50 @@
+# .gitignore for starchasers project.
+
+# MacOS system files
+*.DS_Store
+
+# XCode files
+*.xcodeproj/
+DerivedData/
+build/
+xuserdata/
+
+# Output files
+*.out
+
+# Compile object files and executables
+*.o
+*.exe
+*.app
+
+# Python virtual environment
+env/
+
+# starchasers project specifics
+node_modules
+.prettierignore
+**/__pycache__/
+bundle.js
+*.js.map
+
+# Python scratch paper
+demo.py
+
+# Large databases
+NPS/
+World_Atlas_2015.tif
+world_cities/
+
+# Log files.
+*.log*
+
+# Text files created to record progress and thoughts.
+progress.org
+recommendations.txt
+efficiency_concerns
+
+# Temporary files.
+tmp/
+
+# Credential files.
+credentials/

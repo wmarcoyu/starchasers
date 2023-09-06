@@ -1,0 +1,49 @@
+body {
+  background-color: #282828;
+  color: #DCDCDC;
+}
+
+.header-wrapper {
+    border-bottom: 2px solid grey;
+}
+
+.all-results {
+    width: 60vw;
+}
+
+.park-result {
+    border-bottom: 1px solid grey;
+    height: 6vh;
+}
+
+a {
+    text-decoration: none;  /* Remove underlines. */
+    color: inherit;  /* Use regular font colors.  */
+}
+
+th {
+    font-size: 1.3em;
+}
+
+.table-head-row {
+    border-bottom: 1px solid grey;
+}
+
+.table-head th, .park-result td {
+    display: flex;
+    align-items: center;  /* Align vertically. */
+    justify-content: center;  /* Align horizontally. */
+}
+
+.col.dropdown {
+    display: flex;
+}
+
+.number-of-results {
+    font-size: 0.9em;
+    opacity: 50%;
+}
+
+.btn {
+    color: inherit;
+}

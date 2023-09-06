@@ -1,0 +1,185 @@
+body {
+  background-color: #282828;
+  color: #DCDCDC;
+}
+
+.body {
+    border-top: 2px solid grey;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Behind the content */
+    opacity: 0.5;
+
+    background-image: url('milky-way-sequoia.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.row {
+    margin-top: 5vh;
+}
+
+.search-bar {
+    margin-top: 10vh;
+}
+
+.recommendations {
+    border: 2px solid red;
+}
+
+.idx-search {
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding-right: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =============================== Location ================================ */
+input[type="text"] {
+    height: 5vh;
+    max-height: 50px;
+    width: 100%;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+    color: inherit;
+}
+
+.idx-location {
+    padding-right: 2rem;
+    margin-right: 2rem;
+    border-right: 2px solid grey;
+}
+
+input:focus {
+  outline-color: grey;
+}
+
+
+/* ======================= Distance and Bortle ============================= */
+.btn {
+    color: inherit;
+    height: 5vh;
+    max-height: 50px;
+    width: 100%;
+}
+
+.idx-distance {
+    margin-right: 1em;
+}
+
+.dropdown-toggle {
+    border: none;
+}
+
+.dropdown {
+    padding-right: 2rem;
+    margin-right: 2rem;
+    border-right: 1px solid grey;
+}
+
+.dropdown.select-bortle {
+    margin-right: 0rem;
+}
+
+/* Remove the default black triangle in dropdown menus. */
+.no-caret::after {
+    display: none !important;
+}
+
+/* ====================== Submit and Map Button ============================ */
+button.idx-submit, button.open-map {
+    height: 5vh;
+    max-height: 50px;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+.search-button-wrapper {
+    margin-left: 1rem;
+}
+
+.map-button-wrapper {
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin-left: 2rem;
+    margin-right: 0rem;
+}
+
+.map-container {
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+.close {
+  position: fixed;
+  top: 9%;
+  right: 7%;
+  font-size: 3em;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+
+/* ============================= Feeds ===================================== */
+
+.image-container {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+}
+
+.square-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 5vh;
+    width: 100%;
+}
+
+ul.horizontal-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.horizontal-list li {
+  display: inline;
+  margin-right: 3vw;  /* adjust as needed */
+}
+
