@@ -45,6 +45,7 @@ efficiency_concerns
 
 # Temporary files.
 tmp/
+.markdown-preview.html
 
 # Credential files.
 credentials/
