@@ -1,6 +1,6 @@
 # Starchasers: Find Your Favorite Stargazing Spot
 
->**NOTE**: This is a public testing version featuring 431 parks from [The National Park Service](#acknowledgements). Currently, park search is limited to the US. We are continuosuly adding more parks.
+>**NOTE**: This is a public testing version featuring 431 parks from [The National Park Service](#acknowledgements). Currently, park search is limited to the US. We are continuously adding more parks.
 
 ## Introduction
 One question I see people ask all the time is: I live at xxx, what are the best stargazing locations near me? Or, I just moved to xxx, where can I go for stargazing on weekends? Starchasers is here to answer these questions.
