@@ -148,7 +148,7 @@ class HistoryTransparencyChart extends React.Component {
                       let label = "";
                       const transparency =
                         translation[fetchedData.transparency[numericalMonth]];
-                      const cloud = fetchedData.cloud[numericalMonth];
+                      const cloud = fetchedData.cloud[numericalMonth].toFixed(2);
                       const humidity =
                         fetchedData.humidity[numericalMonth].toFixed(2);
                       const aerosol =
