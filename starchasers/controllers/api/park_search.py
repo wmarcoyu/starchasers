@@ -1,7 +1,7 @@
 """Search for parks that satisfy user query conditions."""
 import flask
 import starchasers
-from starchasers.config import logger
+from starchasers.logger import logger
 
 
 @starchasers.app.route("/api/search-parks/")

@@ -7,31 +7,8 @@ http://doi.org/10.5880/GFZ.1.4.2016.001
 http://dx.doi.org/10.1126/sciadv.1600377
 """
 import numpy as np
-import rasterio
-from dataserver.model import get_light_pollution_db
-from dataserver.logger import logger
-
-
-def get_transform():
-    """Get the transform matrix that transforms (lng, lat) to (row, col)."""
-    with rasterio.open(FILENAME) as source:
-        transform = source.transform
-    return transform
-
-
-def lng_lat_to_row_col(lng, lat):
-    """Apply the affine transformation on (lng, lat).
-
-    Parameters:
-    lng - longitude, ranging from [-180, 180]
-    lat - latitude, ranging from (-60, 85), open intervals.
-    """
-    # Check for lat range. NOTE: An assert is sufficient for now
-    # since this code is not for public use.
-    assert lat > -60 and lat < 85
-    transform = get_transform()
-    row, col = rasterio.transform.rowcol(transform, lng, lat)
-    return (row, col)
+from starchasers.model import get_light_pollution_db
+from starchasers.logger import logger
 
 
 def get_brightness(lng, lat):

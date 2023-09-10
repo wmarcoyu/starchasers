@@ -2,7 +2,7 @@
 import flask
 import starchasers
 from starchasers.config import cities_connection_pool, \
-    parks_connection_pool
+    parks_connection_pool, light_pollution_connection_pool
 
 
 def get_cities_db():
@@ -53,3 +53,21 @@ def close_parks_db(error=None):
     if database_connection is not None:
         database_connection.commit()
         parks_connection_pool.putconn(database_connection)
+
+
+def get_light_pollution_db():
+    """Establish a connection to `light_pollution` database."""
+    if "light_pollution_db" not in flask.g:
+        flask.g.light_pollution_db = \
+            light_pollution_connection_pool.getconn()
+    return flask.g.light_pollution_db
+
+
+@starchasers.app.teardown_appcontext
+def close_light_pollution_db(error=None):
+    """Release a connection back to pool."""
+    assert error or not error  # avoid unused parameter error
+    database_connection = flask.g.pop("light_pollution_db", None)
+    if database_connection is not None:
+        database_connection.commit()
+        light_pollution_connection_pool.putconn(database_connection)
