@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+set -Eeuo pipefail
+set -x
+
+
+# Delete database `users` if it exists.
+psql postgres -c "DROP DATABASE IF EXISTS users;";
+# Create database `users`.
+psql postgres -c "CREATE DATABASE users;";
+# Run sql schema to create a table.
+psql users -f "sql_schema/users_schema.sql";
+
+
+# Delete database `parks` if it exists.
+psql postgres -c "DROP DATABASE IF EXISTS parks;";
+# Create database `parks`.
+psql postgres -c "CREATE DATABASE parks;";
+# Run sql schema to create a table.
+psql parks -f "sql_schema/parks_schema.sql";
+
+
+# Run preprocessing module to fill the table.
+python -m preprocessing;

@@ -34,6 +34,7 @@ demo.py
 NPS/
 World_Atlas_2015.tif
 world_cities/
+preprocessing/
 
 # Log files.
 *.log*
