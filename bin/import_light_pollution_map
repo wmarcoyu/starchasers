@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+# Run this script after uploading the light pollution map to the server.
+# Destination directory: dataserver/preprocessing/light_pollution/
+
+DB_NAME="light_pollution"
+DB_USER="ec2-user"
+
+# Convert the Tiff file to GeoTiff.
+gdal_translate -of GTiff -a_srs EPSG:4326 \
+	       preprocessing/light_pollution/World_Atlas_2015.tif \
+	       preprocessing/light_pollution/World_Atlas_2015.geotiff
+
+# Create database light_pollution.
+# Check if the database exists
+if psql -U $DB_USER -lqt | cut -d \| -f 1 | grep -qw $DB_NAME; then
+    echo "Database $DB_NAME already exists."
+else
+    createdb -U $DB_USER $DB_NAME
+    echo "Database $DB_NAME created."
+fi
+
+# Enable PostGIS extension.
+psql -U $DB_USER -d light_pollution -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+psql -U $DB_USER -d light_pollution -c "CREATE EXTENSION postgis_raster;"
+
+# Import the GeoTiff file into PostGIS.
+# light_pollution is both the name of the database and that of the table.
+raster2pgsql -s 4326 -I -C -M \
+	     preprocessing/light_pollution/World_Atlas_2015.geotiff \
+	     -F -t 100x100 public.light_pollution | psql -U $DB_USER -d light_pollution
