@@ -33,8 +33,8 @@ demo.py
 # Large databases
 NPS/
 World_Atlas_2015.tif
+*.geotiff
 world_cities/
-preprocessing/
 
 # Log files.
 *.log*
