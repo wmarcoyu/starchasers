@@ -13,7 +13,7 @@ DATASERVER_URL = "https://starchasers-data.com/api"
 with open("credentials/api_token.txt", encoding="utf-8") as file:
     API_TOKEN = file.readline().strip()
 # TODO: adjust in production.
-DATABASE_USER = "marco.w"
+DATABASE_USER = "ec2-user"
 
 
 def setup_logger(log_file_name):
