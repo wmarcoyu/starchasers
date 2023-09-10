@@ -5,7 +5,6 @@ astroid==2.15.5
 attrs==23.1.0
 bitstring==4.0.2
 blinker==1.6.2
-Cartopy==0.21.1
 certifi==2023.5.7
 cffi==1.15.1
 cftime==1.6.2
@@ -64,7 +63,6 @@ pycparser==2.21
 pydocstyle==6.3.0
 pyflakes==3.1.0
 Pygments==2.15.1
-pygrib==2.1.4
 pylint==2.17.4
 pynndescent==0.5.10
 pyparsing==3.0.9
