@@ -2,7 +2,8 @@
 import flask
 import requests
 import starchasers
-from starchasers.config import logger, DATASERVER_URL, API_TOKEN
+from starchasers.config import DATASERVER_URL, API_TOKEN
+from starchasers.logger import logger
 
 
 @starchasers.app.route("/details/")
