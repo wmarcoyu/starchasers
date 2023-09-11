@@ -25,7 +25,6 @@ fi
 
 # Enable PostGIS extension.
 psql -U $DB_USER -d light_pollution -c "CREATE EXTENSION IF NOT EXISTS postgis;"
-psql -U $DB_USER -d light_pollution -c "CREATE EXTENSION postgis_raster;"
 
 # Import the GeoTiff file into PostGIS.
 # light_pollution is both the name of the database and that of the table.
