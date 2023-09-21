@@ -13,7 +13,6 @@ class Trend extends React.Component {
     const endpoint = "/api/historical-transparency/";
     const parameters = window.location.search;
     const url = `${endpoint}${parameters}`;
-    console.log(url);
     fetch(url, { credentials: "same-origin" })
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);

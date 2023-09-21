@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 import PropTypes from "prop-types";
 import { simplifyMonth } from "./utils";
@@ -29,8 +30,8 @@ class MilkyWay extends React.Component {
         <h5 className="milky-way-activity-title">
           Milky Way Center Rise and Set
         </h5>
-        {milkyWayData.activity.map((object) => (
-          <p key={`milkyway-activity-${object.rise}-${object.set}`}>
+        {milkyWayData.activity.map((object, index) => (
+          <p key={`milkyway-activity-${object.rise}-${object.set} ${index}`}>
             {simplifyMonth(object.rise, inputFormat, outputFormat)} —{" "}
             {simplifyMonth(object.set, inputFormat, outputFormat)} <br /> (
             {simplifyMonth(object.transit, inputFormat, outputFormat)})
