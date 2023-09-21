@@ -1,3 +1,4 @@
+"""Set up a logger for starchasers."""
 import logging
 from logging.handlers import TimedRotatingFileHandler
 

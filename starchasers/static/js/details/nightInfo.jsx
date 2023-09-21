@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 import PropTypes from "prop-types";
 import { simplifyMonth } from "./utils";
@@ -26,8 +27,8 @@ class DarkHours extends React.Component {
     return (
       <div className="col auxiliary dark-hours">
         <h5 className="dark-hours-title">Dark Hours</h5>
-        {darkHours.map((object) => (
-          <p key={`dark-hour-${object.set}-${object.rise}`}>
+        {darkHours.map((object, index) => (
+          <p key={`dark-hour-${object.set}-${object.rise} ${index}`}>
             {simplifyMonth(object.set, inputFormat, outputFormat)} —{" "}
             {simplifyMonth(object.rise, inputFormat, outputFormat)}
           </p>
@@ -54,8 +55,8 @@ class MoonPhase extends React.Component {
     return (
       <div className="col auxiliary moon-phase">
         <h5 className="moon-title">Moon Set and Rise</h5>
-        {moonPhase.map((object) => (
-          <p key={`moon-phase-${object.set}-${object.rise}`}>
+        {moonPhase.map((object, index) => (
+          <p key={`moon-phase-${object.set}-${object.rise} ${index}`}>
             {simplifyMonth(object.set, inputFormat, outputFormat)} —{" "}
             {simplifyMonth(object.rise, inputFormat, outputFormat)}
           </p>
@@ -100,12 +101,16 @@ class Score extends React.Component {
         <br />
         <h3 className="score">{score}</h3>
 
-        <p className="score-annotations-title">
-          {scoreTable[score].split(":")[0]}
-        </p>
-        <p className="score-annotations-content">
-          {scoreTable[score].split(":")[1]}
-        </p>
+        {score !== "No available score" && (
+          <>
+            <p className="score-annotations-title">
+              {scoreTable[score].split(":")[0]}
+            </p>
+            <p className="score-annotations-content">
+              {scoreTable[score].split(":")[1]}
+            </p>
+          </>
+        )}
       </div>
     );
   }

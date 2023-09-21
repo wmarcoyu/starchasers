@@ -24,12 +24,11 @@ def proxy_request(endpoint):
         "Token": API_TOKEN
     }
 
-    print(f"{DATASERVER_URL}/{endpoint}/?{query_string}")
+    # NOTE: only for debugging purposes.
+    # print(f"{DATASERVER_URL}/{endpoint}/?{query_string}")
+    url = f"{DATASERVER_URL}/{endpoint}/?{query_string}"
 
-    response = requests.get(
-        f"{DATASERVER_URL}/{endpoint}/?{query_string}", headers=headers,
-        timeout=10
-    )
+    response = requests.get(url, headers=headers, timeout=10)
 
     if response.status_code == 200:
         data = response.json()
